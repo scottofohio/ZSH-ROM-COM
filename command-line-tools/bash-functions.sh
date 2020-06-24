@@ -29,3 +29,19 @@ function new-alias () {
         echo "Ut-oh! This function requires '~/.bash_aliases' exists and is executed in '~/.bashrc'"
     fi
 }
+
+## -----------------------------------------
+ # Create a new directory & cd into it
+ #
+ # @1 = New directory name
+ ##
+function mkcd () {
+    if [ -z "$1" ]; then
+        echo "Please provide a name for the new directory:"
+        read DIR
+    else
+        DIR = $1
+    fi
+    mkdir "$DIR"
+    cd "$DIR"
+}
