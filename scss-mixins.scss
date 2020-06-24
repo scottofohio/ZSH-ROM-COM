@@ -1,3 +1,9 @@
+/**
+ * Modified Bootstrap Grid Mixin
+ *
+ * Utilizes CSS Grid with a flexbox fallback. 
+ */
+
 $grid-gutter-width: 30px; 
 @mixin make-container($container_size: full, $no_padding: false) {
   width: 100%;
@@ -76,4 +82,34 @@ $grid-gutter-width: 30px;
 @mixin make-col-offset($size, $columns: $grid-columns) {
   $num: $size / $columns;
   margin-left: if($num == 0, 0, percentage($num));
+}
+
+/**
+ * Prefixer Mixin 
+ *
+ *  Mixin to add all required browser prefixes
+*/
+
+ @mixin prefix($property, $value, $prefixes: null, $important: false) {
+  @if $prefixes == null {
+      @if variable-exists(browser-prefixes) {
+          $prefixes: $browser-prefixes;
+      } @else {
+          $prefixes: "webkit","moz","ms","o";
+      }
+  }
+  @if $important == true {
+      $value: unquote($value) !important;
+  }
+  @each $prefix in $prefixes {
+      #{"-" + $prefix + "-" + $property}: unquote($value);
+  }
+  #{$property}:  unquote($value);
+}
+
+/**
+* Alias for `@mixin prefix`'
+*/
+@mixin prefixer($property, $value, $prefixes: null, $important: false) {
+  @include prefix($property, $value, $prefixes, $important);
 }
