@@ -1,0 +1,22 @@
+Scott Dunifon, [Jun 24, 2020 at 8:56:38 AM]:
+Alright I’m going a start a series of command line tool replacements. These are tools that replace the old find grep etc tools with more modern ones that are way faster (usually written in rust a c++ like language). And way easier argument syntax.  Be on the lookout.
+
+command line utility replacement #1: first up is fd replacing find
+
+https://github.com/sharkdp/fd
+
+find searches through a directory recursivly to find files based on your arguments.. but has a weird syntax like:
+
+find . -name ‘my name’
+
+fd simplifies this by just accepting the search pattern you want to look for so:
+
+fd .rb
+
+it also ignores all those private directories it shouldn’t go to and anything in .gitignore so it just gives back good results
+
+its alsow waaaaaayyyyy faster ‘fd .rb’ finds all the ruby files in my home directory in 4.6 seconds ‘find ~ -name .rb’ takes 108 seconds to do the same
+
+no down sides just improvements here is the feature set:
+
+mac users install with “brew install fd” and ubuntu users use “sudo apt install fd-find”
