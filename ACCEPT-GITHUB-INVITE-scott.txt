@@ -1,1 +1,0 @@
-Adding this file to let scott know that he needs to accept the github invite to this repo, so I can stop approving pull requests. 
