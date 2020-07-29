@@ -10,8 +10,6 @@
 
 ### [Ruby](ruby)
 
-### [Rist](rust)
+### [Rust](rust)
 
 ---
-
-Have a nice day!
